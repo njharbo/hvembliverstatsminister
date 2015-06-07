@@ -16,6 +16,8 @@ Række 10:Nordicbets odds for HTS
 
 fv15bets.py indsamler data, opdaterer csv filen og danner grafer.
 
+danfigurer.py danner figurer uden at indsamle data.
+
 Spørgsmål kan skrives her eller rettes til @hhsievertsen og @njharbo.
 
 God fornøjelse.
