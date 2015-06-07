@@ -136,35 +136,35 @@ def spangraph(name):
 		except:
 			continue
 		try:
-			llr_ssh_1=1/float(row[4])/(1/float(row[3])+1/float(row[4]))
+			llr_ssh_1=1/float(row[2])/(1/float(row[3])+1/float(row[2]))
 		except:
 			llr_ssh_1=np.nan
 		try:
-			llr_ssh_2=1/float(row[6])/(1/float(row[5])+1/float(row[6]))
+			llr_ssh_2=1/float(row[4])/(1/float(row[5])+1/float(row[4]))
 		except:
 			llr_ssh_2=np.nan
 		try:
-			llr_ssh_3=1/float(row[8])/(1/float(row[7])+1/float(row[8]))
+			llr_ssh_3=1/float(row[6])/(1/float(row[7])+1/float(row[6]))
 		except:
 			llr_ssh_3=np.nan
 		try:
-			llr_ssh_4=1/float(row[10])/(1/float(row[9])+1/float(row[10]))
+			llr_ssh_4=1/float(row[8])/(1/float(row[9])+1/float(row[8]))
 		except:
 			llr_ssh_4=np.nan
 		try:
-			hts_ssh_1=1/float(row[3])/(1/float(row[3])+1/float(row[4]))
+			hts_ssh_1=1/float(row[3])/(1/float(row[3])+1/float(row[2]))
 		except:
 			hts_ssh_1=np.nan
 		try:
-			hts_ssh_2=1/float(row[5])/(1/float(row[5])+1/float(row[6]))
+			hts_ssh_2=1/float(row[5])/(1/float(row[5])+1/float(row[4]))
 		except:
 			hts_ssh_2=np.nan
 		try:
-			hts_ssh_3=1/float(row[7])/(1/float(row[7])+1/float(row[8]))
+			hts_ssh_3=1/float(row[7])/(1/float(row[7])+1/float(row[6]))
 		except:
 			hts_ssh_3=np.nan
 		try:
-			hts_ssh_4=1/float(row[9])/(1/float(row[9])+1/float(row[10]))
+			hts_ssh_4=1/float(row[9])/(1/float(row[9])+1/float(row[8]))
 		except:
 			hts_ssh_4=np.nan
 		# #mean, min and max for hts
@@ -180,6 +180,9 @@ def spangraph(name):
 		lasthtsmean=100*np.nanmean(array_ssh_hts,0)
 		lasthtsmeanview=round(lasthtsmean,1)
     	lastllrmeanview=round(lastllrmean,1)
+    	print(array_ssh_llr)
+    	print(array_ssh_hts)
+
 
 	#Fan chart, probs
 	matplotlib.rcParams.update({'font.size':22})
@@ -192,6 +195,7 @@ def spangraph(name):
 	xlim(20,0)
 	plt.xticks(np.arange(0, 20, 1.0))
 	ylim(0,100)
+	plt.yticks(np.arange(0, 101, 10))
 	axhline(y=50,xmin=0,xmax=20,color='0.75')
 	plt.fill_between(time, hts_ssh_max, hts_ssh_min,color=(0.99, 0.33, 0.33), alpha=1)
 	plt.plot(time, hts_ssh_mean, color=(0.99, 0., 0.),label="Helle Thorning-Schmidt",linewidth=4.0,) # Plot the original signal

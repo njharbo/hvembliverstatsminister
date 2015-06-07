@@ -184,36 +184,36 @@ def spangraph(name):
 			time.append(h)
 		except:
 			continue
-		try:
-			llr_ssh_1=1/float(row[4])/(1/float(row[3])+1/float(row[4]))
+try:
+			llr_ssh_1=1/float(row[2])/(1/float(row[3])+1/float(row[2]))
 		except:
 			llr_ssh_1=np.nan
 		try:
-			llr_ssh_2=1/float(row[6])/(1/float(row[5])+1/float(row[6]))
+			llr_ssh_2=1/float(row[4])/(1/float(row[5])+1/float(row[4]))
 		except:
 			llr_ssh_2=np.nan
 		try:
-			llr_ssh_3=1/float(row[8])/(1/float(row[7])+1/float(row[8]))
+			llr_ssh_3=1/float(row[6])/(1/float(row[7])+1/float(row[6]))
 		except:
 			llr_ssh_3=np.nan
 		try:
-			llr_ssh_4=1/float(row[10])/(1/float(row[9])+1/float(row[10]))
+			llr_ssh_4=1/float(row[8])/(1/float(row[9])+1/float(row[8]))
 		except:
 			llr_ssh_4=np.nan
 		try:
-			hts_ssh_1=1/float(row[3])/(1/float(row[3])+1/float(row[4]))
+			hts_ssh_1=1/float(row[3])/(1/float(row[3])+1/float(row[2]))
 		except:
 			hts_ssh_1=np.nan
 		try:
-			hts_ssh_2=1/float(row[5])/(1/float(row[5])+1/float(row[6]))
+			hts_ssh_2=1/float(row[5])/(1/float(row[5])+1/float(row[4]))
 		except:
 			hts_ssh_2=np.nan
 		try:
-			hts_ssh_3=1/float(row[7])/(1/float(row[7])+1/float(row[8]))
+			hts_ssh_3=1/float(row[7])/(1/float(row[7])+1/float(row[6]))
 		except:
 			hts_ssh_3=np.nan
 		try:
-			hts_ssh_4=1/float(row[9])/(1/float(row[9])+1/float(row[10]))
+			hts_ssh_4=1/float(row[9])/(1/float(row[9])+1/float(row[8]))
 		except:
 			hts_ssh_4=np.nan
 		# #mean, min and max for hts
