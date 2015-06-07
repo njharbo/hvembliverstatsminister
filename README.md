@@ -2,17 +2,17 @@
 
 Dette projekt indsamler data fra danske bookmakers og udregner herudfra den implicitte sandsynlighed for at Helle Thorning og Lars Løkke, respektive, vinder valget.
 
-data.csv indeholder det indsamlede data: 
-Række 1: dato for indsamling i MMDD format
-Række 2: tidspunkt for indsamling i TTMM format, 
-Række 3: Betfairs odds for LLR
-Række 4: Betfairs odds for HTS
-Række 5: Danske Spils odds for LLR
-Række 6: Danske Spils odds for HTS
-Række 7: Unibets odds for LLR
-Række 8: Unibets odds for HTS
-Række 9: Nordicbets odds for LLR
-Række 10:Nordicbets odds for HTS
+data.csv indeholder det indsamlede data med flg. variable:
+date: dato for indsamling i MMDD format
+time: tidspunkt for indsamling i TTMM format, 
+bf_llr: Betfairs odds for LLR
+bf_hts: Betfairs odds for HTS
+ds_llr: Danske Spils odds for LLR
+ds_hts: Danske Spils odds for HTS
+ub_llr: Unibets odds for LLR
+ub_hts: Unibets odds for HTS
+nb_llr: Nordicbets odds for LLR
+nb_hts:Nordicbets odds for HTS
 
 fv15bets.py indsamler data, opdaterer csv filen og danner grafer.
 
