@@ -1,6 +1,7 @@
 # hvembliverstatsminister
 
-Dette projekt indsamler data fra danske bookmakers og udregner herudfra den implicitte sandsynlighed for at Helle Thorning og Lars Løkke, respektive, vinder valget.
+Dette projekt indsamler data fra danske bookmakers og udregner herudfra den implicitte betingede sandsynlighed for at Helle Thorning og Lars Løkke, respektive, bliver statsminister efter valget. Sandsynligheden er betinget på at en af de to kandidater
+bliver statsminister.
 
 data.csv indeholder det indsamlede data med flg. variable:
 date: dato for indsamling i MMDD format
