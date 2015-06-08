@@ -80,7 +80,9 @@ def makefig(name,col1,col2):
 	ax.xaxis.set_ticks_position('bottom')
 	ax.yaxis.set_ticks_position('left')
 	xlim(20,0)
+	plt.xticks(np.arange(0, 20, 1))
 	ylim(0,4)
+	plt.yticks(np.arange(0, 4, 0.5))
 	plt.plot(time,llr,'b-', linewidth=4.0,label="Lars Løkke Rasmussen")
 	plt.plot(time,hts,'r-', linewidth=4.0,label="Helle Thorning-Schmidt")
 	plt.legend(frameon=False)
@@ -88,6 +90,7 @@ def makefig(name,col1,col2):
 	plt.xlabel('Dage til valg')
 	tid= pythontime.strftime("%Y%m%d-%H%M")
 	text(10.1,-.5,'Af @njharbo og @hhsievertsen. Senest opdateret:'+tid)
+	plt.grid()
 	savefig(name+'.png', bbox_inches='tight')
 	plt.close()
 	plt.clf()
@@ -197,9 +200,9 @@ def spangraph(name):
 	ylim(0,100)
 	plt.yticks(np.arange(0, 101, 10))
 	axhline(y=50,xmin=0,xmax=20,color='0.75')
-	plt.fill_between(time, hts_ssh_max, hts_ssh_min,color=(0.99, 0.33, 0.33), alpha=1)
+	plt.fill_between(time, hts_ssh_max, hts_ssh_min,color=(0.99, 0.33, 0.33), alpha=0.7)
 	plt.plot(time, hts_ssh_mean, color=(0.99, 0., 0.),label="Helle Thorning-Schmidt",linewidth=4.0,) # Plot the original signal
-	plt.fill_between(time, llr_ssh_max, llr_ssh_min,color=(0.4, 0.4, 0.99), alpha=1,)
+	plt.fill_between(time, llr_ssh_max, llr_ssh_min,color=(0.4, 0.4, 0.99), alpha=0.5)
 	plt.plot(time, llr_ssh_mean, color=(0.0, 0., 0.99),label="Lars Løkke Rasmussen",linewidth=4.0,) # Plot the original signal
 	plt.legend(frameon=False)
 	plt.ylabel('Sandsynlighed, %')
@@ -209,7 +212,7 @@ def spangraph(name):
 	lasthtsmean=lasthtsmean-0.5
 	text(lasttime,lasthtsmean,lasthtsmeanview, color='red')
 	text(lasttime,lastllrmean,lastllrmeanview, color='blue')
-	text(20,-14,'Figuren viser intervallet af implicitte sandsynligheder udregnet fra 4 bookmakers odds. Se FAQ for detaljer.')
+	text(20,-14,'Figuren viser intervallet af implicitte sandsynligheder for at hhv. HTS og LLR vinder valget, udregnet fra 4 bookmakers odds. Se FAQ for detaljer.', size=20)
 	text(10.1,-20,'Af @njharbo og @hhsievertsen. Senest opdateret:'+tid)
 	plt.grid()
 	savefig(name+'.png', bbox_inches='tight')
