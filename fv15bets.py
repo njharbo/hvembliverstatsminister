@@ -32,16 +32,16 @@ betfairzoom=9
 betfairscroll="window.scrollTo(0.25*document.body.scrollWidth, 0.2*document.body.scrollHeight);"
 #danskespil
 danskespillink="https://danskespil.dk/oddset/politik/danmark/folketingsvalg-2015"
-danskespilLLR=(515,274,552,293)
-danskespilHTS=(802,274,837,293)
+danskespilLLR=(520,491,563,509)
+danskespilHTS=(804,491,845,509)
 danskespilzoom=1
 danskespilscroll="window.scrollTo(0.0*document.body.scrollWidth, 0.05*document.body.scrollHeight);"
 #nordicbet
 nordicbetlink="https://www.nordicbet.dk/sports#m=951&bgi=1"
-nordicbetLLR=(937,213,990,232)
-nordicbetHTS=(937,253,990,272)
+nordicbetHTS=(934,160,987,179)
+nordicbetLLR=(934,204,987,221)
 nordicbetzoom=5
-nordicbetscroll="window.scrollTo(0.175*document.body.scrollWidth, 0.075*document.body.scrollHeight);"
+nordicbetscroll="window.scrollTo(0.175*document.body.scrollWidth, 0.08*document.body.scrollHeight);"
 #betsafe
 betsafelink="https://www.betsafe.dk/odds/#/#m%3D951%26bgi%3D1"
 betsafeLLR=(860,287,951,326)
@@ -50,10 +50,10 @@ betsafezoom=8
 betsafescroll="window.scrollTo(0.4*document.body.scrollWidth, 0.1*document.body.scrollHeight);"
 #Unibet
 unibetlink="https://www.unibet.dk/betting#/group/2000061905/category/3998"
-unibetLLR=(753,226,798,240)
-unibetHTS=(753,254,798,263)
-unibetzoom=11
-unibetscroll="window.scrollTo(0.45*document.body.scrollWidth, 0.05*document.body.scrollHeight);"
+unibetHTS=(941,311,1003,329)
+unibetLLR=(941,289,1003,304)
+unibetzoom=5
+unibetscroll="window.scrollTo(0.15*document.body.scrollWidth, 0.05*document.body.scrollHeight);"
 
 
 # Define functions
@@ -109,6 +109,8 @@ def sshot(name,link,HTS,LLR,scroll,zooms):
 		LLR=LLR.replace(" ", "")
 		HTS=HTS.replace(",", ".")
 		HTS=HTS.replace(" ", "")
+		HTS=HTS.replace("l", "1")
+		LLR=LLR.replace("l", "1")
 	except:
 		print("decoding failed")
 	return(LLR,HTS)
@@ -116,8 +118,10 @@ def sshot(name,link,HTS,LLR,scroll,zooms):
 #Loop
 def myloop():
  	#try:
-
-		time.sleep(1800)
+ 	time.sleep(9000)
+ 	try:
+ 		time.sleep(900)
+ 		print("Starting: "+str(countme)+'started at'+time.strftime("%H%M"))
 		global count
 		bf=sshot("betfair",betfairlink,befairHTS,befairLLR,betfairscroll,betfairzoom)
 		ds=sshot("danskespil",danskespillink,danskespilHTS,danskespilLLR,danskespilscroll,danskespilzoom)
@@ -130,26 +134,21 @@ def myloop():
 		with open('data.csv','a') as f:
 	                                 fileWriter = csv.writer(f , delimiter=str(u';'))
 	                                 fileWriter.writerows([[dates,times, bf[0],bf[1],ds[0],ds[1],ub[0],ub[1],nb[0],nb[1]]]) 
-	    
+	except:
+		time.sleep(1800)
+	 	print("failed")  
 
 
-		print("Iteration: "+str(count))
-		# Nextiteration
-		count=count+1
+
 		
-		
-		print("Next loop starts")
-	 	myloop()
 
 
 
-	#except:
-	 	print("Iteration: "+str(count)+" failed. ")
-	 	count=count+1
-	  	print("Next loop starts")
-	 	myloop()
+countme=0
+while countme<1000:
+		print("Iteration: "+str(countme)+'started at'+time.strftime("%H%M"))
+		myloop()
+		countme=countme+1
 
-myloop()
+	
 
-
-time
